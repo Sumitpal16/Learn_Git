@@ -26,3 +26,6 @@ Flow:
 3. ⁠issue ssh command to run your bash script
 
 You can make bash script part of your GitHub repo for simplicity so that the application code (html files) and deployment code (bash script) are maintained in a single repo.
+
+NOTE :: Before making any CI/CD pipeline always ensure u are able to manually run all your flow elements. One of the core parts of this pipeline is to run command by ssh, not by logging into the terminal but to issue command without entering the terminal.
+
