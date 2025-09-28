@@ -1,0 +1,52 @@
+name: Deploy via Git Pull on EC2
+
+on:
+  push:
+    branches:
+      - master   # change if you deploy from another branch
+  workflow_dispatch: # allow manual trigger too, “Run workflow” button appears in your repo under:👉 GitHub → Actions tab → Select workflow → Run workflow
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+
+      - name: SSH into EC2 and pull latest code
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ EC2_HOST }}
+          username: ${{ EC2_USERNAME }}
+          key: ${{ SSH_PRIVATE_KEY }}
+          
+          script: |
+            set -e
+            APP_DIR=/home/ubuntu/Git1   
+            BRANCH=master                        
+
+            # create folder if missing
+            mkdir -p "$APP_DIR"
+            cd "$APP_DIR"
+
+            if [ ! -d .git ]; then
+              echo "Cloning repo..."
+              git clone -b $BRANCH https://github.com/Sumitpal16/Learn_Git.git
+            else
+              echo "Pulling latest changes..."
+              git fetch origin $BRANCH
+              git reset --hard origin/$BRANCH
+            fi
+
+            echo "✅ Code updated in $APP_DIR"
+
+            # Optional: run deployment script if exists
+
+            if [ -x "./Bash_script_Test1.sh " ]; then      
+
+              echo "Running Bash_script_Test1.sh ..."
+              bash ./Bash_script_Test1.sh
+            else
+              echo "⚠️ Bash_script_Test1.sh not found or not executable"
+            fi
