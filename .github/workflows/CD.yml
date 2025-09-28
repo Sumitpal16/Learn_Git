@@ -1,4 +1,4 @@
-name: Deploy via Git Pull on EC2
+name: CD # Deploy via Git Pull on EC2
 
 on:
   push:
