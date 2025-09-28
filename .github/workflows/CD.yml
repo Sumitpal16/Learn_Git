@@ -17,9 +17,9 @@ jobs:
       - name: SSH into EC2 and pull latest code
         uses: appleboy/ssh-action@v1.1.0
         with:
-          host: ${{ EC2_HOST }}
-          username: ${{ EC2_USERNAME }}
-          key: ${{ SSH_PRIVATE_KEY }}
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           
           script: |
             set -e
