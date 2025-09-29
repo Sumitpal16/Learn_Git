@@ -22,8 +22,12 @@ Create a CI/CD pipeline using GitHub actions
 
 Flow:
 1. Run the action on push to your branch
+-- Create an SSH key for GitHub Actions → EC2
 2. ⁠issue ssh commands to pull the code on ec2 instance
+-- Add GitHub Secrets (repo → Settings → Secrets and variables → Actions)
 3. ⁠issue ssh command to run your bash script
+-- Add the workflow to your repo -- Create .github/workflows/deploy-ec2-static.yml
+-- Push & test
 
 You can make bash script part of your GitHub repo for simplicity so that the application code (html files) and deployment code (bash script) are maintained in a single repo.
 
