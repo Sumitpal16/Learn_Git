@@ -41,8 +41,6 @@ jobs:
 
             echo "✅ Code updated in $APP_DIR"
 
-            # Optional: run deployment script if exists
-
             if [ -x "./Bash_script_Test1.sh " ]; then      
 
               echo "Running Bash_script_Test1.sh ..."
