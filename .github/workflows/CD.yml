@@ -41,8 +41,7 @@ jobs:
 
             echo "✅ Code updated in $APP_DIR"
 
-            if [ -x "./Bash_script_Test1.sh" ]; then      
-
+            if [ -x "sudo ./Bash_script_Test1.sh" ]; then
               echo "Running Bash_script_Test1.sh ..."
               bash ./Bash_script_Test1.sh
             else
