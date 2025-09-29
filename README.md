@@ -33,3 +33,9 @@ You can make bash script part of your GitHub repo for simplicity so that the app
 
 NOTE :: Before making any CI/CD pipeline always ensure u are able to manually run all your flow elements. One of the core parts of this pipeline is to run command by ssh, not by logging into the terminal but to issue command without entering the terminal.
 
+--------- DAY 3 --------- 
+
+1. Run locally and make requests via postman
+2. ⁠deploy manually on ec2 what are the various ways there are at least 3 ways it's just a hint each has pro and cons
+3. ⁠deploy with script
+4. ⁠deploy with GitHub action.
